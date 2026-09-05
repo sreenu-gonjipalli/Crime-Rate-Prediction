@@ -1,0 +1,127 @@
+Read CLAUDE.md, docs/GOVERNANCE.md and docs/PROGRESS.md.
+
+Use the pharma-risk skill.
+
+Implement Phase 2: Data and Risk Engine.
+
+Create a synthetic dataset at:
+
+data/pharma_inventory.csv
+
+Generate 200 medicine batch records with these columns:
+
+Batch ID
+
+Medicine Name
+
+Category
+
+Manufacturer
+
+Manufacturing Date
+
+Expiry Date
+
+Current Stock
+
+Reorder Level
+
+Maximum Stock
+
+Unit Price
+
+Warehouse
+
+Critical Medicine
+
+Include controlled examples of:
+
+Expired batches
+
+Batches expiring within 30 days
+
+Low stock
+
+Overstock
+
+Missing values
+
+Duplicate records
+
+Invalid dates
+
+Negative stock values
+
+Create:
+
+src/data_loader.py
+
+src/data_quality.py
+
+src/risk_engine.py
+
+src/analytics.py
+
+src/report_generator.py
+
+docs/DATA_DICTIONARY.md
+
+tests/test_data_quality.py
+
+tests/test_risk_engine.py
+
+The risk engine must calculate:
+
+Days To Expiry
+
+Expiry Status
+
+Stock Status
+
+Inventory Value
+
+Risk Score
+
+Risk Level
+
+Recommended Action
+
+Use deterministic Python rules.
+
+Do not use an LLM for calculations.
+
+Risk levels must be:
+
+Critical
+
+High
+
+Medium
+
+Low
+
+I
+
+Handle missing and invalid data safely.
+
+Document every calculation.
+
+Run all relevant tests and fix failures.
+
+Use the pharma-auditor subagent to review:
+
+Calculation accuracy
+
+Boundary conditions
+
+Data governance
+
+I
+
+Test coverage
+
+Implement only confirmed issues from the review.
+
+Update docs/PROGRESS.md and stop.
+
+Do not build the Streamlit dashboard yet.
