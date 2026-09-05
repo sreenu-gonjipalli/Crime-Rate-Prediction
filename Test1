@@ -1,0 +1,199 @@
+For this 20-minute hands-on activity, I’d keep the architecture very small. The main goal is to demonstrate how Claude Code + CLAUDE.md + a few lightweight components can produce a useful pharma risk analyzer quickly.
+
+Recommended project structure
+
+pharma-risk-analyzer/
+│
+├── CLAUDE.md
+├── app.py
+├── risk_analyzer.py
+├── requirements.txt
+└── data/
+    └── pharma_shipments.xlsx
+
+What to put in CLAUDE.md
+
+The important part is to give Claude clear pharma-specific constraints, rather than making a huge file.
+
+# Pharma Shipment Risk Analyzer
+
+## Objective
+Build a small Streamlit application that analyzes pharma supply-chain
+shipments from an uploaded Excel file and identifies high-risk shipments.
+
+## Requirements
+The application must display:
+1. Total shipments
+2. Number of high-risk shipments
+3. Temperature-excursion shipments
+4. Top 5 highest-risk shipments
+5. Risk-distribution chart
+6. Short AI-style recommendations
+
+## Risk Logic
+- Detect temperature excursions using the temperature-related columns.
+- Consider shipment delays, temperature excursions, and other available
+  risk indicators.
+- Create a transparent risk score.
+- Classify shipments as Low, Medium, or High risk.
+- Do not invent missing values or business rules.
+- Clearly show assumptions used for the risk calculation.
+
+## Data Safety
+- Use only synthetic/sanitized data.
+- Never use real patient data or personally identifiable information.
+- Do not send uploaded data to external services.
+- Do not expose sensitive data in logs.
+
+## Technical Requirements
+- Python
+- Streamlit
+- Pandas
+- OpenPyXL
+- Plotly or Streamlit charts
+- Handle missing/unexpected Excel columns gracefully.
+- Keep the application simple enough to run locally.
+
+## Quality
+- Validate the uploaded Excel file.
+- Avoid hard-coded shipment counts.
+- Separate data processing/risk logic from the Streamlit UI.
+- Provide clear error messages.
+- Keep code readable and modular.
+
+Claude components to use
+
+Component	Needed?	Why
+
+CLAUDE.md	✅ Essential	Gives Claude project rules, risk logic and pharma constraints
+Skills	🟡 Optional	Useful if you want reusable Excel/data-analysis instructions
+Subagents	🟡 Optional	Could delegate data profiling or risk-rule design
+Hooks	🟡 Optional	Useful for automatically running tests/linting after changes
+MCP	❌ Not needed	No external system is required
+External LLM/API	❌ Not needed	Recommendation can be generated using deterministic rules
+Streamlit	✅ Essential	Provides the interactive UI
+
+
+For a 20-minute exercise, I would not over-engineer it with subagents, MCP, or hooks. The interesting part is demonstrating how a well-designed CLAUDE.md makes Claude Code produce safer, more domain-appropriate code.
+
+Risk calculation
+
+If the Excel dataset contains suitable columns, ask Claude to derive something transparent such as:
+
+Risk Score =
+    Temperature Excursion → +50
+    Significant Delay      → +25
+    Quality/Compliance issue → +25
+
+0–24   = Low
+25–49  = Medium
+50+    = High
+
+But importantly, don't assume those exact columns or thresholds before inspecting the supplied Excel file. Have Claude first profile the dataset and adapt the calculation to the actual columns.
+
+Streamlit UI
+
+The final application could look roughly like:
+
+┌───────────────────────────────────────────────┐
+│       Pharma Shipment Risk Analyzer           │
+│                                               │
+│  Upload Excel File                            │
+│  [ pharma_shipments.xlsx ]                    │
+│                                               │
+│  Total        High Risk    Temp Excursions    │
+│   500            42              31            │
+│                                               │
+│  Risk Distribution                            │
+│  █████████████ Low                           │
+│  █████ Medium                                │
+│  ██ High                                    │
+│                                               │
+│  Top 5 Highest-Risk Shipments                 │
+│  ┌───────┬──────────┬──────────┐             │
+│  │ ID    │ Score    │ Risk     │             │
+│  └───────┴──────────┴──────────┘             │
+│                                               │
+│  AI-Style Recommendations                     │
+│  • Prioritize high-risk shipments...          │
+│  • Investigate temperature excursions...      │
+│  • Review delayed shipments...                │
+└───────────────────────────────────────────────┘
+
+Best Claude Code workflow for the exercise
+
+Give Claude Code prompts in this order:
+
+1. Inspect first
+
+> Inspect the Excel dataset in the project. Identify the sheet names, columns, data types, missing values, and potential fields that can be used to calculate shipment risk. Do not write the application yet.
+
+
+
+2. Design
+
+> Based on the actual dataset, propose a simple transparent risk-scoring methodology. Do not invent columns. Explain your assumptions and risk thresholds.
+
+
+
+3. Build
+
+> Build the Streamlit Pharma Shipment Risk Analyzer according to CLAUDE.md and the approved risk methodology. Keep data processing separate from the UI.
+
+
+
+4. Test
+
+> Run the application checks and test it against the supplied Excel file. Fix any column, type, missing-value, or UI issues you find.
+
+
+
+Creative angle for the challenge
+
+If they specifically ask "what Claude components would you use?", a strong answer is:
+
+> CLAUDE.md = governance, Skill = reusable pharma-analysis capability, Subagent = specialized data/risk analysis, and Hooks = quality gates.
+
+
+
+For example:
+
+CLAUDE.md
+                 Pharma guardrails
+                        │
+                        ▼
+                 Claude Code Agent
+                  /      |       \
+                 /       |        \
+          Skill       Subagent    Hooks
+       Excel/Risk    Data profiler  Tests
+          │             │            │
+          └─────────────┴────────────┘
+                        │
+                        ▼
+                 Streamlit App
+                        │
+                        ▼
+              Shipment Risk Dashboard
+
+For a 20-minute demo, though: use CLAUDE.md + Claude Code + Streamlit as the core, and present Skills/Subagents/Hooks as optional enhancements. That keeps the activity achievable while still demonstrating the broader Claude Code architecture.
+
+20-Minute Hands-on Activity: Build a Mini Pharma Risk Analyzer with Claude Code
+
+Objective: Participants will use VS Code + Claude Code to build a very small Streamlit application that reads the supplied pharma supply-chain Excel dataset and identifies high-risk shipments.
+
+Challenge: apply creative thinking to design Claude.md and what other components of Claude (Skills/Subagents/hooks etc) are required to make the task.
+
+Build a mini Pharma Shipment Risk Analyzer that allows a user to upload the Excel file and automatically shows:
+
+1. Total shipments
+
+2. Number of high-risk shipments
+
+3. Temperature-excursion shipments
+
+4. Top 5 highest-risk shipments
+
+5. One chart showing risk distribution
+
+6. One short AI-style recommendation section
