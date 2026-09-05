@@ -1,0 +1,333 @@
+Validate Phase 2 using boundary cases:
+
+Already expired
+
+Expiring today
+
+Expiring in exactly 30 days
+
+Expiring after 30 days.
+
+Zero stock
+
+Stock equal to reorder level
+
+Stock above maximum level
+
+Missing expiry date
+
+Negative stock
+
+Duplicate Batch_ID
+
+Fix calculation or validation errors.
+
+Run the complete test suite.
+
+Update docs/PROGRESS.md and stop.
+
+
+
+
+
+phase 3
+
+Read:
+
+CLAUDE.md
+
+docs/GOVERNANCE.md
+
+docs/PROGRESS.md
+
+docs/DATA DICTIONARY.md
+
+Use:
+
+pharma-risk skill
+
+professional-ul skill
+
+Inspect the existing data and risk-engine modules.
+
+Implement Phase 3: Professional Streamlit Dashboard.
+
+Create app.py with a polished light corporate interface.
+
+The application must include:
+
+1. A professional header:
+
+Title: "Pharma Project Analytics"
+
+Subtitle: "Inventory, Expiry and Risk Intelligence"
+
+A horizontally moving line with the exact text:
+
+"Project Analytics"
+
+Move smoothly from right to left
+
+2. The moving line must:
+
+Use a light blue background
+
+Use dark navy text
+
+Pause when the mouse hovers over it
+
+Respect reduced-motion accessibility settings
+
+Not distract from the dashboard
+
+3. A sidebar containing:
+
+CSV/Excel uploader
+
+Medicine filter
+
+Category filter
+
+Warehouse filter
+
+Expiry-status filter
+
+Stock-status filter
+
+Reset Filters button
+
+Risk-level filter
+
+4. KPI cards:
+
+Total Batches
+
+Total Inventory Value
+
+Expired Batches
+
+Expiring Soon
+
+Low-Stock Batches
+
+Critical Risk Batches.
+
+5. plotly charts:
+
+Batches by Risk Level
+
+Inventory value by Category
+
+Expiry Timeline
+
+Top Critical Medicine Batches
+
+6. Tabs:
+
+Low Stock by Warehouse
+
+Executive Dashboard
+
+Risk Analysis
+
+Data Quality
+
+Governance
+
+Data Preview
+
+7. Download buttons:
+
+Processed Inventory Report
+
+Critical-Risk Report Data-Quality Report
+
+8. Professional states:
+
+Loading message
+
+Empty-data message
+
+Invalid-file message
+
+Success message
+
+User-friendly error handling
+
+9. Governance:
+
+Display a synthetic-data notice
+
+Display a no-medical-advice disclaimer
+
+Show calculation rules
+
+Show data-quality issues
+
+Do not store uploaded files permanently
+
+Also create:
+
+-streamlit/config.toml
+
+requirements.txt
+
+-gitignore
+
+README.md
+
+Do not add an LLM, database or authentication.
+
+Run the complete automated test suite.
+
+Use the pharma-auditor subagent to conduct a final read-only review covering
+
+Functional accuracy
+
+UI quality
+
+Governance
+
+Security
+
+Accessibility
+
+Test coverage
+
+Deployment readiness
+
+Fix critical and high-priority findings only.
+
+Update docs/PROGRESS.md and stop.
+
+
+Moving Line sxpected Design
+
+PROJECT ANALYTICS
+
+EXPIRY MONITORING
+
+INVENTORY INTELLIGENCE
+
+RISK VISIBILITY.
+
+Project Analytics
+
+Design:
+
+Light blue strip
+
+Dark navy text Smooth movement
+
+Professional speed
+
+Rounded corner's
+
+No flashing Mobile responsive
+
+Final Validation Prompt
+
+Perform an end-to-end validation of Pharma Project Analytics.
+
+Check:
+
+1. The default synthetic CSV loads. CSV and Excel uploads work.
+
+Invalid files show clear errors.
+
+KPI values match the processed data.
+
+All filters work together. Charts update when filters change.
+
+Expiry and stock-risk calculations are correct.
+
+All three reports download correctly. The "Project Analytics moving line works.
+
+Reduced motion accessibility is supported. supported.
+
+11. Governance and disclaimer content stent are visible. 12. so data is stored permanently.
+
+18. All tests pass.
+
+Fix only confirmed fallures.
+
+Do not add new features.
+
+Update README.md and docs/PROGRESS.nd. Run Application from Claude Code Chat
+
+start the Stceaalit application, verify that it launches successfully and tell me the local URL.
+
+If dependencles are missing, install only those listed in requirements.txt.
+
+Keep the application available for demonstration.
+
+http://localhost:asel
+
+Live Demonstration script
+
+1. CLAUDE.md
+
+Explain the project instructions and guardrails loaded from CLAUDE.md in six short bullets.
+
+2. Pharma Skill
+
+Explain the expiry, stock and risk rules using rules using one medicine example.
+
+/pharma-risk
+
+3. Professional at skill
+
+/professional-
+
+Explain which professional UE standards are implemented in app.py.
+
+4. Subezent
+
+I
+
+Use the pharme-auditor subagent to perform a read-only review of the application, Return only the five most important findings.
+
+safe simulated tests for the safety and quality hooks.
+
+Demonstrate:
+
+sefe command being allowed
+
+A destructive command being blocked
+
+attempt to access env being blocked Python file being validated after editing
+
+not execute destructive commands or expose any secrets.
+
+6. Governance Explain how this project implements data governance, security and responsible analytics in simple language.
+
+
+
+Complete Execution in 12 Lines
+
+1. Create pharma-project-analytics folder.
+
+2. Open the folder in VS Code.
+
+3. Open Claude Code Chat.
+
+4. Paste the Phase 1 configuration prompt.
+
+5. Verify hooks, skills, subagent and governance.
+
+6. Enter/clear.
+
+7. Paste the Phase 2 data-engine prompt.
+
+8. Run and verify the tests.
+
+9. Enter/clear.
+
+10. Paste the Phase 3 dashboard prompt.
+
+11. Run final end-to-end validation.
+
+12. Ask Claude to start the streamlit application.
+
+
+
